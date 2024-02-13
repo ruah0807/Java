@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성지정</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input :type="type1"><br>
+        <input v-bind:type="type2"><br>
+        <a href="url">url</a>
+        <p v-bind:class="class1">v-bind 클래스 지정</p>
+        <p v-bind:class="[class1,class2]">다중 클래스 지정</p>
+        <p v-bind:class= "{'test-class1': isON}">클래스 ON/OFF</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                url:'https://naver.com',
+                type1:'text',
+                type2:'text',
+                class1:'test-class1',
+                class2:'test-class2',
+                isON: false
+            }
+        })
+    </script>
+</body>
+</html>

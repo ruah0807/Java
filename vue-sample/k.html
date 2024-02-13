@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h1>컴포넌트에 값을 전달 하는 예제</h1>
+    <div id="app">
+        <my-component my-name="철수"></my-component>
+        <my-component my-name="영희"></my-component>
+        <my-component></my-component>
+    </div>
+    <script>
+        var MyComponent ={
+            template: '<h3 class="my-comp"> 나는 {{myName}} 입니다.</h3>',
+            props: {
+                myName: String
+            }
+        }
+        new Vue ({
+            el:'#app',
+            components: {
+                'my-component': MyComponent
+            }
+        })
+    </script>
+</body>
+</html>

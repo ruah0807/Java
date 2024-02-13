@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <p> {{myText}} </p>
+    </div>
+    <script>
+        new Vue ({          // 프론트앤드 개발시에 vue인스턴스 생성부터 시작 
+            el: '#app',     // element의 약자 ( 요소, 성질 )
+            data: {
+                myText: 'Hello'  // {{myText}}라는 변수에 데이터 저장
+            }
+        })
+    </script>
+</body>
+</html>

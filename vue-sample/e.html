@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+    <button v-bind:disabled="one" v-on:click="oneCheck">one</button>
+    <button v-bind:disabled="two" v-on:click="twoCheck">two</button>
+    <button v-bind:disabled="three" v-on:click="threeCheck">three</button>
+    <p v-if="one">one click</p>
+    <p v-else-if="two">two click</p>
+    <p v-else>three click</p>
+    </div>
+
+    <script>
+        new Vue ({
+            el: '#app',
+            data: {
+                one: false,
+                two: false,
+                three: true,
+            },
+            methods: {
+                oneCheck(){
+                    this.one = true;
+                    this.two = false;
+                    this.three = false;
+                },
+                twoCheck(){
+                    this.one = false;
+                    this.two = true;
+                    this.three = false;
+                },
+                threeCheck(){
+                    this.one = false;
+                    this.two = false;
+                    this.three = true;
+                },
+            }
+        })
+    </script>
+</body>
+</html>

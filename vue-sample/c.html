@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력폼연결</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h2>입력한 문자열을 표시하는 예제</h2>
+    <div id="app">
+        <input v-model="input_model" placeholder="이름"><br><br>
+
+        <input v-model.lazy="input_model2" placeholder="전화번호를 입력하시오"><br><br>
+
+        <textarea v-model="textarea_model" placeholder="자기소개를 입력하세요"></textarea><br><br>
+
+        <input type="checkbox" v-model="checkbox_model" value="awd">
+        <button v-bind:disabled="checkbox_model===false"> disable확인 </button>
+        <p>checkbox model : {{checkbox_model}}</p>
+
+        <input type="checkbox" v-model="checkbox_model2" value="test1">
+        <input type="checkbox" v-model="checkbox_model2" value="test2">
+        <p>checkbox model : {{checkbox_model2}}</p>
+
+        <input type="radio" v-model="checkbox_model" value ="test1">
+        <input type="radio" v-model="checkbox_model" value ="test2">
+        <input type="radio" v-model="checkbox_model" value ="test3">
+        <p>radio model : {{checkbox_model}}</p>
+
+        <select v-model="select_model">
+            <option>test1</option>
+            <option>test2</option>
+        </select>
+        <p>select model : {{select_model}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                input_model:'',
+                input_model2:'',
+                textarea_model:'',
+                checkbox_model:false,
+                checkbox_model2:[],
+                radio_model:'',
+                select_model:''
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in arr">{{ item }}</li><br>
+            <li v-for="(value, key) in obj">{{key}} : {{ value }}</li><br>
+            <li v-for="(item) in objArr">{{ item.a }} : {{ item.b }} : {{ item.c }}</li><br>
+            <input v-model="num">
+            <button v-on:click="add(num++)">add</button>
+            <button v-on:click="deletes(num--)">delete</button>
+            <li v-for="item in pushArr">{{ item }}</li>
+        </ul>    
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                arr: ['쨈빵','멜론빵','크로와상'],
+                obj: {'a':1,'b':2,'c':3},
+                objArr: [ {'a':1, 'b':2, 'c':3}, {'a':4, 'b':5, 'c':6} ],
+                pushArr: [] ,
+                num: 0
+            },
+            methods: {
+                add(val) {
+                    this.pushArr.push(val); 
+                  
+                },
+                deletes(){
+                    this.pushArr.pop();
+                 
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

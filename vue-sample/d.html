@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="countUp">1씩증가합니다</button>
+        <p>{{count}}</p>
+
+        <button :disabled="click" v-on:click="oneClick">한번만 클릭 가능</button>
+        <p>{{ text }}</p>
+
+        <button v-on:click="paramClick(10)">10씩증가</button>
+        <p>{{ tenCount }}</p>
+
+        <input v-on:keyup.enter="alertClick">
+    </div>
+    <script>  
+        new Vue({
+            el: '#app',
+            data: {
+                count:0,
+                click:false,
+                text:"",
+                tenCount:10
+            },
+            methods: {
+                countUp(){
+                    this.count++
+                },
+                oneClick(){
+                    this.click = true;
+                    this.text = "안뇽~";
+                },
+                paramClick(num) {
+                    this.tenCount += 10;
+                },
+                alertClick() {
+                    alert("안녕하세요 김루아입니다.");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

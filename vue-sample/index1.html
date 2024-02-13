@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h2>HTML로 표시하는 예제</h2>
+    <div id="app">
+        <p>{{ myText }}</p>         <!--변수로 글자를 불러온다.-->
+        <p v-text="myText"></p>     <!--text는 글자 크기에 변화가 없다.-->
+        <p v-html="myText"></p>     <!-- html태그가 실행되어 글씨가 크게 나온다.-->
+    </div>
+    <script>
+        new Vue ({
+            el: '#app',
+            data: {
+                myText:'<h1>Hello!!</h1>'
+            }
+        })
+    </script>
+</body>
+</html>

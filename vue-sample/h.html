@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watch</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>금지문자는, 「{{forbiddenText}}」</p>
+        <p>{{this.inputText.indexOf(this.forbiddenText)}}</p>
+        <textarea v-model="inputText"></textarea>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                forbiddenText: '안되',
+                inputText: '오늘은 날씨가 좋습니다.'
+            },
+            watch: {
+                inputText: function(){
+                    var pos = this.inputText.indexOf(this.forbiddenText);
+                    if(pos >=0){
+                        alert(this.forbiddenText +"는 입력할 수 없습니다.");
+                        this.inputText = this.inputText.substr(0,pos);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
